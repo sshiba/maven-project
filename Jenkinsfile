@@ -32,13 +32,13 @@ pipeline {
             parallel{
              stage ('Deploy to Staging'){
                     steps {
-                        bat "C:\\Users\\sidne\\Development\\scp -scp -i C:/Users/sidne/Development/ssh-key/tomcat-demo.pem **\\target\\*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                        bat "C:\\Program Files (x86)\\Linux\\pscp -scp -i C:/Users/sidne/Development/ssh-key/tomcat-demo.pem **\\target\\*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ('Deploy to Production') {
                     steps {
-                        bat "C:\\Users\\sidne\\Development\\scp -scp -i C:/Users/sidne/Development/ssh-key/tomcat-demo.pem **\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        bat "C:\\Program Files (x86)\\Linux\\pscp -scp -i C:/Users/sidne/Development/ssh-key/tomcat-demo.pem **\\target\\*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
