@@ -32,13 +32,13 @@ pipeline {
             parallel{
              stage ('Deploy to Staging'){
                     steps {
-                        bat "C:\\\"Program Files (x86)\"\\Linux\\pscp -i C:\\Users\\sidne\\Development\\ssh-key\\tomcat-demo.pem C:\\\"Program Files (x86)\"\\Jenkins\\workspace\\FullyAutomated@2\\webapp\\target\\webapp.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                        bat "C:\\\"Program Files (x86)\"\\Linux\\pscp -i C:\\Users\\sidne\\Development\\ssh-key\\tomcat-demo.pem \"C:\\Program Files (x86)\\Jenkins\\workspace\\FullyAutomated@2\\webapp\\target\\webapp.war\" ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ('Deploy to Production') {
                     steps {
-                        bat "C:\\\"Program Files (x86)\"\\Linux\\pscp -i C:\\Users\\sidne\\Development\\ssh-key\\tomcat-demo.pem C:\\\"Program Files (x86)\"\\Jenkins\\workspace\\FullyAutomated@2\\webapp\\target\\webapp.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        bat "C:\\\"Program Files (x86)\"\\Linux\\pscp -i C:\\Users\\sidne\\Development\\ssh-key\\tomcat-demo.pem \"C:\\Program Files (x86)\\Jenkins\\workspace\\FullyAutomated@2\\webapp\\target\\webapp.war\" ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
